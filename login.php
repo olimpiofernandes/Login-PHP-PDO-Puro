@@ -3,8 +3,8 @@
     session_start();
     if(isset($_POST['acao'])){
 
-        $email = preg_replace('/[^[:alpha:]_]/', '',$_POST['email']); //tratamento contra sql injection p/ email 
-        $senha = preg_replace('/[^[:alpha:]_]/', '',$_POST['senha']); //tratamento contra sql injection p/ senha
+        $email = $_POST['email']; //tratamento contra sql injection p/ email 
+        $senha = $_POST['senha']; //tratamento contra sql injection p/ senha
 
         $sql = $pdo->prepare("SELECT * FROM users WHERE email = ?");
         $sql->execute([$email]);

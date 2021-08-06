@@ -2,9 +2,9 @@
     include('config.php');
     if(isset($_POST['acao'])){
 
-        $nome = preg_replace('/[^[:alpha:]_]/', '',$_POST['nome']); //tratamento contra sql injection p/ email 
-        $email = preg_replace('/[^[:alpha:]_]/', '',$_POST['email']); //tratamento contra sql injection p/ email 
-        $senha = preg_replace('/[^[:alpha:]_]/', '',$_POST['senha']); //tratamento contra sql injection p/ senha
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
         $db_senha = password_hash($senha, PASSWORD_DEFAULT); //  transforma a senha em uma hash de 72 caracteres
 
         try{
